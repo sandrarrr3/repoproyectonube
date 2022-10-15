@@ -27,8 +27,6 @@ public class Product implements Serializable {
     private String description;
 
     
-    
-    
     @ManyToOne
     @JoinColumn(name ="categoryId")
     @JsonIgnoreProperties("cloud")
@@ -43,12 +41,6 @@ public class Product implements Serializable {
     @JsonIgnoreProperties("cloud")
     private List <Reservation> reservation;  
         
-
-   
-
-    
-
-    
     /*category
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
     @JsonIgnoreProperties("category")
