@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/User")
+@RequestMapping("/api/User")
 public class UserController {
     
     

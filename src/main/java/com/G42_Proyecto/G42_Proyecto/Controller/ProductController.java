@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/cloud")
+@RequestMapping("/api/Cloud")
 public class ProductController {
     
     @Autowired
