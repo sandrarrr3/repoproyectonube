@@ -32,7 +32,7 @@ public class CategoryService {
         } else {
             Optional<Category> e = categoryRepository.getCategory(c.getId());
             if (e.isPresent()) {
-                return e.get();
+                return c;
             } else {
                 return categoryRepository.save(c);
             }

@@ -22,12 +22,12 @@ public class Message {
 
     @ManyToOne
     @JoinColumn(name = "cloudId")
-    @JsonIgnoreProperties({"messages", "client","reservations"})
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Product cloud;
     
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"messages", "reservations","client"})
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Client client;
 
     public Integer getIdMessage() {

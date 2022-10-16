@@ -28,18 +28,18 @@ public class Reservation {
 
 
     @ManyToOne
-    @JoinColumn(name = "idCloud")
-    @JsonIgnoreProperties({"reservations", "client"})
+    @JoinColumn(name = "cloudId")
+    @JsonIgnoreProperties({"reservations"})
     private Product cloud;
 
     @ManyToOne
-    @JoinColumn(name = "idClient")
+    @JoinColumn(name = "clientId")
     @JsonIgnoreProperties({"messages", "reservations"})
     private Client client;
 
     @OneToOne
-    @JoinColumn(name = "idScore")
-    @JsonIgnoreProperties("reservations")
+    @JoinColumn(name = "scoreId")
+    @JsonIgnoreProperties("reservation")
     private Score score;
 
     /* 
