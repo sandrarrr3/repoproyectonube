@@ -1,15 +1,16 @@
 package com.G42_Proyecto.G42_Proyecto.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,29 +23,31 @@ public class Reservation {
     private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
-    private Date created;
     private String status;
-    
+    private Date created;
+
 
     @ManyToOne
-    @JoinColumn(name ="idCloud")
-    @JsonIgnoreProperties("reservations")
+    @JoinColumn(name = "idCloud")
+    @JsonIgnoreProperties({"reservations", "client"})
     private Product cloud;
-    
 
     @ManyToOne
-    @JoinColumn(name ="idClient")
-    @JsonIgnoreProperties("reservations")
+    @JoinColumn(name = "idClient")
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Client client;
-    
 
-    
-/* 
+    @OneToOne
+    @JoinColumn(name = "idScore")
+    @JsonIgnoreProperties("reservations")
+    private Score score;
+
+    /* 
     @ManyToOne
     @JoinColumn(name ="cloud")
     @JsonIgnoreProperties("reservation")
     private List<Product> products;
-*/
+     */
 
     public Integer getIdReservation() {
         return idReservation;
@@ -70,14 +73,6 @@ public class Reservation {
         this.devolutionDate = devolutionDate;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -86,12 +81,12 @@ public class Reservation {
         this.status = status;
     }
 
-    public Client getClient() {
-        return client;
+    public Date getCreated() {
+        return created;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
     public Product getCloud() {
@@ -102,6 +97,21 @@ public class Reservation {
         this.cloud = cloud;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
 
 
 }

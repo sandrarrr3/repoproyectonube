@@ -1,36 +1,34 @@
 package com.G42_Proyecto.G42_Proyecto.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "message")
 public class Message {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
     private String messageText;
-   
-    
+
     @ManyToOne
-    @JoinColumn(name ="cloudId")
-    @JsonIgnoreProperties("message")
+    @JoinColumn(name = "cloudId")
+    @JsonIgnoreProperties({"messages", "client","reservations"})
     private Product cloud;
     
-    /*producto
     @ManyToOne
-    @JoinColumn(name ="categoryId")
-    @JsonIgnoreProperties("cloud")
-    private Category category;
-    */
+    @JoinColumn(name = "clientId")
+    @JsonIgnoreProperties({"messages", "reservations","client"})
+    private Client client;
 
     public Integer getIdMessage() {
         return idMessage;
@@ -52,13 +50,20 @@ public class Message {
         return cloud;
     }
 
-    public void setClouds(Product cloud) {
+    public void setCloud(Product cloud) {
         this.cloud = cloud;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     
 
  
-    
-    
+
 }
