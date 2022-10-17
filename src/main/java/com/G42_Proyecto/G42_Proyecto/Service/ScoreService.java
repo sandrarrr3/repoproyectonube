@@ -62,6 +62,10 @@ public class ScoreService {
         }
         return flag;
     }
+
+    public Optional<Score> getScore(int scoreId) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
    
      
 }
