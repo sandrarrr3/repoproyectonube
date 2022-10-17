@@ -39,8 +39,8 @@ public class ScoreService {
         if (s.getId() != null) {
             Optional<Score>q = scoreRepository.getScore(s.getId());
             if (q.isPresent()){
-                if(s.getStor()!=null){
-                    q.get().setStor(s.getStor());
+                if(s.getScore()!=null){
+                    q.get().setScore(s.getScore());
                 }
                 scoreRepository.save(q.get());
                 return q.get();

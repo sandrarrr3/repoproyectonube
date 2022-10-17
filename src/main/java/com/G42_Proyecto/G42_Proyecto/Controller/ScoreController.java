@@ -3,8 +3,10 @@ package com.G42_Proyecto.G42_Proyecto.Controller;
 import com.G42_Proyecto.G42_Proyecto.Service.ScoreService;
 import com.G42_Proyecto.G42_Proyecto.entities.Score;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,11 @@ public class ScoreController {
     public List<Score> getAll() {
         return scoreService.getAll();
 
+    }
+
+                        @GetMapping("{id}")
+    public Optional<Score> getScore(@PathVariable("id") int scoreId){
+        return scoreService.getScore(scoreId);       
     }
 
     @PostMapping("/save")
