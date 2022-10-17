@@ -21,8 +21,7 @@ public class CategoryController {
     
     @GetMapping("/all")
     public List<Category> getAll(){
-        return categoryService.getAll();
-        
+        return categoryService.getAll();       
     }
     
     @PostMapping("/save")
