@@ -48,9 +48,6 @@ public class ReservationService {
                 if (s.getDevolutionDate()!= null) {
                     q.get().setDevolutionDate(s.getDevolutionDate());
                 }
-                if (s.getCreated()!= null) {
-                    q.get().setCreated(s.getCreated());
-                }
                 if (s.getStatus() != null) {
                     q.get().setStatus(s.getStatus());
                 }
