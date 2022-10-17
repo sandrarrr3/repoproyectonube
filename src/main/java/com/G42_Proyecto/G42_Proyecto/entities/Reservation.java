@@ -24,7 +24,7 @@ public class Reservation {
     private Date startDate;
     private Date devolutionDate;
     private String status="created";
-    private Date created;
+
 
 
     @ManyToOne
@@ -81,14 +81,6 @@ public class Reservation {
         this.status = status;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
     public Product getCloud() {
         return cloud;
     }
@@ -113,5 +105,6 @@ public class Reservation {
         this.score = score;
     }
 
+   
 
 }
