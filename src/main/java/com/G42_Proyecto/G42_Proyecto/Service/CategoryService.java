@@ -2,7 +2,6 @@ package com.G42_Proyecto.G42_Proyecto.Service;
 
 
 import com.G42_Proyecto.G42_Proyecto.entities.Category;
-import com.G42_Proyecto.G42_Proyecto.entities.Product;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,9 +73,6 @@ public class CategoryService {
         return flag;
     }
 
-    public Product save(Product p) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
 
 

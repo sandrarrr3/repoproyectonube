@@ -41,6 +41,7 @@ public class ProductController {
     public Product update (@RequestBody Product c){ return productService.update(c);}
     
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Product save(@RequestBody Product p){
         return productService.save(p);
         
