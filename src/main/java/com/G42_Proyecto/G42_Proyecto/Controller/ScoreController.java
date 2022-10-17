@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,22 +29,28 @@ public class ScoreController {
 
     }
 
-   @GetMapping("{id}")
-    public Optional<Score> getScore(@PathVariable("id") int scoreId){
-        return scoreService.getScore(scoreId);       
+    @GetMapping("{id}")
+    public Optional<Score> getScore(@PathVariable("id") int scoreId) {
+        return scoreService.getScore(scoreId);
     }
-    
-    
-                        @PutMapping("/update")
+
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Score update (@RequestBody Score c){ return scoreService.update(c);}
-    
+    public Score update(@RequestBody Score c) {
+        return scoreService.update(c);
+    }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Score save(@RequestBody Score r) {
         return scoreService.save(r);
 
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id) {
+        return scoreService.delete(id);
     }
 
 }

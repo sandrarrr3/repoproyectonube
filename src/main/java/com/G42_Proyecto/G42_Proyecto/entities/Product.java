@@ -40,13 +40,6 @@ public class Product implements Serializable {
 
 
 
-    /*category
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
-    @JsonIgnoreProperties("category")
-    private List<Product> cloud;
-
-     */
-
     public Integer getId() {
         return id;
     }

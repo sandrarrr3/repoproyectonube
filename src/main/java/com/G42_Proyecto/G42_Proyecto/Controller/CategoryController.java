@@ -21,7 +21,7 @@ public class CategoryController {
         return categoryService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Optional<Category> getCategory(@PathVariable("id") int categoryId) {
         return categoryService.getCategory(categoryId);
     }
@@ -38,6 +38,13 @@ public class CategoryController {
         return categoryService.save(c);
 
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){
+        return categoryService.delete(id);
+    }
+            
     
  
 }
