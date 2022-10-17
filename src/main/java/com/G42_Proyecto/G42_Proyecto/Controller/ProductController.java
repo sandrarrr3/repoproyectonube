@@ -1,6 +1,5 @@
 package com.G42_Proyecto.G42_Proyecto.Controller;
 
-
 import com.G42_Proyecto.G42_Proyecto.Service.ProductService;
 import com.G42_Proyecto.G42_Proyecto.entities.Product;
 import java.util.List;
@@ -17,42 +16,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/api/Cloud")
 public class ProductController {
-    
+
     @Autowired
     private ProductService productService;
-    
+
     @GetMapping("/all")
-    public List<Product> getAll(){
+    public List<Product> getAll() {
         return productService.getAll();
-        
+
     }
-    
-                    @GetMapping("/{id}")
-    public Optional<Product> getProduct(@PathVariable("id") int productId){
-        return productService.getProduct(productId);       
+
+    @GetMapping("/{id}")
+    public Optional<Product> getProduct(@PathVariable("id") int productId) {
+        return productService.getProduct(productId);
     }
-    
-    
-                @PutMapping("/update")
+
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Product update (@RequestBody Product c){ return productService.update(c);}
-    
+    public Product update(@RequestBody Product c) {
+        return productService.update(c);
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Product save(@RequestBody Product p){
+    public Product save(@RequestBody Product p) {
         return productService.save(p);
-        
+
     }
-    
-    
-             @DeleteMapping("/{id}")
+
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int id){
+    public boolean delete(@PathVariable("id") int id) {
         return productService.deleteCloud(id);
     }
-    
+
 }

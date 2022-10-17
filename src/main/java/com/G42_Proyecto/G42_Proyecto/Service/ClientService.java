@@ -44,7 +44,7 @@ public class ClientService {
                     q.get().setName(c.getName());
                 }
                 if (c.getEmail() != null) {
-                    q.get().setEmail(c.getName());
+                    q.get().setEmail(c.getEmail());
                 }
                 if (c.getPassword() != null) {
                     q.get().setPassword(c.getPassword());

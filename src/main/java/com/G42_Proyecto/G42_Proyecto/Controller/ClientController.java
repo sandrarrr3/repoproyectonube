@@ -16,41 +16,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/api/Client")
 public class ClientController {
-    
-     @Autowired
+
+    @Autowired
     private ClientService clientService;
-    
+
     @GetMapping("/all")
-    public List<Client> getAll(){
+    public List<Client> getAll() {
         return clientService.getAll();
-        
+
     }
-    
-            @GetMapping("/{id}")
-    public Optional<Client> getClient(@PathVariable("id") int clientId){
-        return clientService.getClient(clientId);       
+
+    @GetMapping("/{id}")
+    public Optional<Client> getClient(@PathVariable("id") int clientId) {
+        return clientService.getClient(clientId);
     }
-    
-        @PutMapping("/update")
+
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Client update (@RequestBody Client c){ return clientService.update(c);}
-    
+    public Client update(@RequestBody Client c) {
+        return clientService.update(c);
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Client save(@RequestBody Client c){
+    public Client save(@RequestBody Client c) {
         return clientService.save(c);
-        
+
     }
-    
-      @DeleteMapping("/{id}")
+
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int id){
+    public boolean delete(@PathVariable("id") int id) {
         return clientService.deleteClient(id);
     }
-        
-    
+
 }

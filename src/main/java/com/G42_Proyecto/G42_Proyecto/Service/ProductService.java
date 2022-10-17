@@ -1,16 +1,11 @@
 package com.G42_Proyecto.G42_Proyecto.Service;
 
-
 import com.G42_Proyecto.G42_Proyecto.entities.Product;
 import com.G42_Proyecto.G42_Proyecto.repository.ProductRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
-        
-
 
 @Service
 public class ProductService {
@@ -47,6 +42,15 @@ public class ProductService {
                 if (p.getName() != null) {
                     q.get().setName(p.getName());
                 }
+
+                if (p.getBrand() != null) {
+                    q.get().setBrand(p.getBrand());
+                }
+
+                if (p.getDescription() != null) {
+                    q.get().setDescription(p.getDescription());
+                }
+
                 if (p.getYear() != null) {
                     q.get().setYear(p.getYear());
                 }
@@ -66,16 +70,12 @@ public class ProductService {
         }
     }
 
-    
-    
     public boolean deleteCloud(int id) {
-        Boolean d = getProduct   (id).map(cloud -> {
+        Boolean d = getProduct(id).map(cloud -> {
             productRepository.delete(cloud);
             return true;
         }).orElse(false);
         return d;
     }
-    
+
 }
-
-
