@@ -1,6 +1,4 @@
-
 package com.G42_Proyecto.G42_Proyecto.Controller;
-
 
 import com.G42_Proyecto.G42_Proyecto.Service.MessageService;
 import com.G42_Proyecto.G42_Proyecto.entities.Message;
@@ -21,43 +19,38 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/Message")
 public class MessageController {
-    
-     @Autowired
+
+    @Autowired
     private MessageService messageService;
-    
+
     @GetMapping("/all")
-    public List<Message> getAll(){
+    public List<Message> getAll() {
         return messageService.getAll();
-        
+
     }
-    
-    
-                @GetMapping("{id}")
-    public Optional<Message> getClient(@PathVariable("id") int messageId){
-        return messageService.getMessage(messageId);       
+
+    @GetMapping("/{id}")
+    public Optional<Message> getClient(@PathVariable("id") int messageId) {
+        return messageService.getMessage(messageId);
     }
-    
-    
-    
-            @PutMapping("/update")
+
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Message update (@RequestBody Message c){ return messageService.update(c);}
-    
+    public Message update(@RequestBody Message c) {
+        return messageService.update(c);
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Message save(@RequestBody Message m){
+    public Message save(@RequestBody Message m) {
         return messageService.save(m);
-        
-    }
-    
-    
-          @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int id){
-        return messageService.delete(id);
-    }
-    
-}
 
-    
-    
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id) {
+        return messageService.deleteMessage(id);
+    }
+
+}

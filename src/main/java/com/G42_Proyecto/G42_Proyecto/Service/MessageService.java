@@ -53,14 +53,12 @@ public class MessageService {
 
     }
 
-    public boolean delete (int id){
-        boolean flag = false;
-        Optional <Message>m = messageRepository.getMessage(id);
-        if (m.isPresent()){
-            messageRepository.delete(m.get());
-            flag = true;
-        }
-        return flag;
+    public boolean deleteMessage(int id) {
+        Boolean d = getMessage(id).map(client -> {
+            messageRepository.delete(client);
+            return true;
+        }).orElse(false);
+        return d;
     }
     
 }

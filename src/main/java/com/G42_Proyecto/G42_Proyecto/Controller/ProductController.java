@@ -31,7 +31,7 @@ public class ProductController {
         
     }
     
-                    @GetMapping("{id}")
+                    @GetMapping("/{id}")
     public Optional<Product> getProduct(@PathVariable("id") int productId){
         return productService.getProduct(productId);       
     }
@@ -52,7 +52,7 @@ public class ProductController {
              @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id){
-        return productService.delete(id);
+        return productService.deleteCloud(id);
     }
     
 }

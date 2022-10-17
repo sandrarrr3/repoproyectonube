@@ -29,7 +29,7 @@ public class UserController {
 
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Optional<User> getUser(@PathVariable("id") int userId) {
         return userService.getUser(userId);
     }
@@ -50,7 +50,7 @@ public class UserController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id) {
-        return userService.delete(id);
+        return userService.deleteUser(id);
     }
 
 }

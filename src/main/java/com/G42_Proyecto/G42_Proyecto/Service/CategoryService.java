@@ -1,6 +1,5 @@
 package com.G42_Proyecto.G42_Proyecto.Service;
 
-
 import com.G42_Proyecto.G42_Proyecto.entities.Category;
 import java.util.List;
 import java.util.Optional;
@@ -8,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.G42_Proyecto.G42_Proyecto.repository.CategoryRepository;
 
-
-        
 @Service
 public class CategoryService {
 
@@ -61,18 +58,13 @@ public class CategoryService {
         }
     }
 
-    
-    
-    public  boolean delete  (int id){
-        boolean flag = false;
-        Optional <Category>c = categoryRepository.getCategory(id);
-        if (c.isPresent()){
-            categoryRepository.delete(c.get());
-            flag = true;
-        }
-        return flag;
+    public boolean deleteCategory(int id) {
+        Boolean d = getCategory(id).map(category -> {
+            categoryRepository.delete(category);
+            return true;
+        }).orElse(false);
+        return d;
+
     }
 
 }
-
-

@@ -42,12 +42,6 @@ public class Reservation {
     @JsonIgnoreProperties("reservation")
     private Score score;
 
-    /* 
-    @ManyToOne
-    @JoinColumn(name ="cloud")
-    @JsonIgnoreProperties("reservation")
-    private List<Product> products;
-     */
 
     public Integer getIdReservation() {
         return idReservation;

@@ -58,15 +58,14 @@ public class UserService {
     }
       
     
-    public  boolean delete  (int id){
-        boolean flag = false;
-        Optional <User>p = userRepository.getUser(id);
-        if (p.isPresent()){
-            userRepository.delete(p.get());
-            flag = true;
-        }
-        return flag;
+    public boolean deleteUser(int id) {
+        Boolean d = getUser(id).map(reservation -> {
+            userRepository.delete(reservation);
+            return true;
+        }).orElse(false);
+        return d;
     }
+    
 }
  
       

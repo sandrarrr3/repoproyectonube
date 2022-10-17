@@ -68,15 +68,14 @@ public class ProductService {
 
     
     
-    public  boolean delete  (int id){
-        boolean flag = false;
-        Optional <Product>p = productRepository.getProduct(id);
-        if (p.isPresent()){
-            productRepository.delete(p.get());
-            flag = true;
-        }
-        return flag;
+    public boolean deleteCloud(int id) {
+        Boolean d = getProduct   (id).map(cloud -> {
+            productRepository.delete(cloud);
+            return true;
+        }).orElse(false);
+        return d;
     }
+    
 }
 
 
