@@ -27,7 +27,7 @@ public class Product implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("cloud")
+    @JsonIgnoreProperties("clouds")
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "cloud")

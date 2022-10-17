@@ -23,7 +23,7 @@ public class Reservation {
     private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
-    private String status;
+    private String status="created";
     private Date created;
 
 
